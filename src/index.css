@@ -1,0 +1,81 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Nunito:wght@500;600;700;800&display=swap');
+
+@theme {
+  --color-tallpop-pink: #FFC4D6;
+  --color-tallpop-peach: #FFD1BA;
+  --color-tallpop-lavender: #DCD6F7;
+  --color-tallpop-mint: #D7F9F1;
+  --color-tallpop-dark: #2D1B2E;
+  --color-tallpop-light: #FFF9FB;
+
+  --font-sans: "Nunito", sans-serif;
+  --font-display: "Baloo 2", sans-serif;
+
+  --animate-blob: blob 7s infinite;
+  --animate-fade-in: fadeIn 0.5s ease-out forwards;
+  --animate-slide-up: slideUp 0.5s ease-out forwards;
+
+  @keyframes blob {
+    0% {
+      transform: translate(0px, 0px) scale(1);
+    }
+
+    33% {
+      transform: translate(30px, -50px) scale(1.1);
+    }
+
+    66% {
+      transform: translate(-20px, 20px) scale(0.9);
+    }
+
+    100% {
+      transform: translate(0px, 0px) scale(1);
+    }
+  }
+
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+
+    100% {
+      opacity: 1;
+    }
+  }
+
+  @keyframes slideUp {
+    0% {
+      transform: translateY(20px);
+      opacity: 0;
+    }
+
+    100% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+}
+
+@layer base {
+  body {
+    @apply bg-tallpop-light text-tallpop-dark antialiased;
+  }
+}
+
+@layer utilities {
+  .glass-card {
+    @apply bg-white/30 backdrop-blur-lg border border-white/20 shadow-xl;
+  }
+
+  .text-glow {
+    text-shadow: 0 0 10px rgba(255, 196, 214, 0.5);
+  }
+
+  .holographic-bg {
+    background: linear-gradient(135deg,
+        rgba(255, 196, 214, 0.4) 0%,
+        rgba(220, 214, 247, 0.4) 50%,
+        rgba(215, 249, 241, 0.4) 100%);
+  }
+}
