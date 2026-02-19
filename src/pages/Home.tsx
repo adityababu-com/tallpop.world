@@ -75,34 +75,32 @@ export const Home = () => {
                         <span className="md:hidden text-xs font-bold text-gray-500">Swipe ← →</span>
                     </div>
 
-                    <div className="md:hidden -mx-6 px-6 overflow-x-auto pb-3 snap-x snap-mandatory [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
-                        <div className="flex gap-4 w-max pr-6">
-                            {girlVisuals.map((visual, index) => (
-                                <Link
-                                    to="/shop"
-                                    key={visual.alt}
-                                    className="relative w-[84vw] max-w-[350px] h-[80svh] max-h-[760px] min-h-[520px] shrink-0 snap-start rounded-[2rem] overflow-hidden border border-white/80 bg-white shadow-[0_35px_70px_-45px_rgba(35,28,8,0.55)]"
-                                >
-                                    <img
-                                        src={visual.src}
-                                        alt={visual.alt}
-                                        loading={index === 0 ? 'eager' : 'lazy'}
-                                        fetchPriority={index === 0 ? 'high' : 'auto'}
-                                        decoding="async"
-                                        sizes="(max-width: 768px) 84vw, 28vw"
-                                        className="w-full h-full object-cover"
-                                    />
-                                    <div className="absolute inset-x-0 bottom-0 p-4 bg-gradient-to-t from-black/55 via-black/10 to-transparent flex items-end justify-between">
-                                        <span className="inline-block rounded-full bg-white/90 border border-white/80 px-3 py-1 text-xs font-bold text-tallpop-dark">
-                                            {visual.tag}
-                                        </span>
-                                        <span className="inline-flex items-center gap-1 text-white text-xs font-bold">
-                                            Shop Now <ArrowRight size={14} />
-                                        </span>
-                                    </div>
-                                </Link>
-                            ))}
-                        </div>
+                    <div className="md:hidden grid grid-cols-1 gap-4 px-4">
+                        {girlVisuals.map((visual, index) => (
+                            <Link
+                                to="/shop"
+                                key={visual.alt}
+                                className="relative w-full h-[60vh] rounded-2xl overflow-hidden border border-white/80 bg-white shadow-lg"
+                            >
+                                <img
+                                    src={visual.src}
+                                    alt={visual.alt}
+                                    loading={index === 0 ? 'eager' : 'lazy'}
+                                    fetchPriority={index === 0 ? 'high' : 'auto'}
+                                    decoding="async"
+                                    sizes="100vw"
+                                    className="w-full h-full object-cover"
+                                />
+                                <div className="absolute inset-x-0 bottom-0 p-4 bg-gradient-to-t from-black/55 via-black/10 to-transparent flex items-end justify-between">
+                                    <span className="inline-block rounded-full bg-white/90 border border-white/80 px-3 py-1 text-xs font-bold text-tallpop-dark">
+                                        {visual.tag}
+                                    </span>
+                                    <span className="inline-flex items-center gap-1 text-white text-xs font-bold">
+                                        Shop Now <ArrowRight size={14} />
+                                    </span>
+                                </div>
+                            </Link>
+                        ))}
                     </div>
 
                     <div className="hidden md:grid grid-cols-3 gap-5">
