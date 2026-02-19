@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import { Button } from '../components/ui/Button';
 import { ArrowLeft, Mail, Lock, User, Loader2 } from 'lucide-react';
@@ -12,7 +12,6 @@ export const Signup = () => {
     const [loading, setLoading] = useState(false);
     const [success, setSuccess] = useState(false);
     const { signUp } = useAuth();
-    const navigate = useNavigate();
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
