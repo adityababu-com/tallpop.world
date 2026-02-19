@@ -78,7 +78,8 @@ export const Home = () => {
                     <div className="md:hidden -mx-6 px-6 overflow-x-auto pb-3 snap-x snap-mandatory [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
                         <div className="flex gap-4 w-max pr-6">
                             {girlVisuals.map((visual, index) => (
-                                <article
+                                <Link
+                                    to="/shop"
                                     key={visual.alt}
                                     className="relative w-[84vw] max-w-[350px] h-[80svh] max-h-[760px] min-h-[520px] shrink-0 snap-start rounded-[2rem] overflow-hidden border border-white/80 bg-white shadow-[0_35px_70px_-45px_rgba(35,28,8,0.55)]"
                                 >
@@ -91,19 +92,22 @@ export const Home = () => {
                                         sizes="(max-width: 768px) 84vw, 28vw"
                                         className="w-full h-full object-cover"
                                     />
-                                    <div className="absolute inset-x-0 bottom-0 p-4 bg-gradient-to-t from-black/55 via-black/10 to-transparent">
+                                    <div className="absolute inset-x-0 bottom-0 p-4 bg-gradient-to-t from-black/55 via-black/10 to-transparent flex items-end justify-between">
                                         <span className="inline-block rounded-full bg-white/90 border border-white/80 px-3 py-1 text-xs font-bold text-tallpop-dark">
                                             {visual.tag}
                                         </span>
+                                        <span className="inline-flex items-center gap-1 text-white text-xs font-bold">
+                                            Shop Now <ArrowRight size={14} />
+                                        </span>
                                     </div>
-                                </article>
+                                </Link>
                             ))}
                         </div>
                     </div>
 
                     <div className="hidden md:grid grid-cols-3 gap-5">
                         {girlVisuals.map((visual, index) => (
-                            <div key={visual.alt} className="rounded-[1.8rem] overflow-hidden border border-white/80 bg-white shadow-[0_25px_60px_-45px_rgba(40,14,70,0.65)]">
+                            <Link to="/shop" key={visual.alt} className="rounded-[1.8rem] overflow-hidden border border-white/80 bg-white shadow-[0_25px_60px_-45px_rgba(40,14,70,0.65)] hover:shadow-xl transition-shadow group">
                                 <div className="aspect-[4/5]">
                                     <img
                                         src={visual.src}
@@ -111,15 +115,18 @@ export const Home = () => {
                                         loading={index === 0 ? 'eager' : 'lazy'}
                                         decoding="async"
                                         sizes="(max-width: 1280px) 33vw, 26vw"
-                                        className="w-full h-full object-cover"
+                                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                                     />
                                 </div>
-                                <div className="p-4">
+                                <div className="p-4 flex items-center justify-between">
                                     <span className="inline-block rounded-full bg-tallpop-light border border-tallpop-pink/30 px-3 py-1 text-xs font-bold text-tallpop-dark">
                                         {visual.tag}
                                     </span>
+                                    <span className="inline-flex items-center gap-1 text-tallpop-pink text-xs font-bold">
+                                        Shop Now <ArrowRight size={14} />
+                                    </span>
                                 </div>
-                            </div>
+                            </Link>
                         ))}
                     </div>
                 </div>
